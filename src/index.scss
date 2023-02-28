@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+@import './nullstyles.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.sliderBtn {
+		@apply w-[51px] h-[51px] bg-blue rounded-[3px] flex items-center justify-center;
+
+		&:hover {
+			@apply bg-opacity-70
+		}
+
+		&:disabled {
+			@apply bg-opacity-30
+		}
+
+		@media (min-width: 768px) {
+			@apply w-[43px] h-[43px]
+		}
+	}
+
+	.customcheckbox {
+		display: none;
+
+		&~* {
+			@apply w-[14.25px] h-[14.25px] border-[2px] border-graystrong flex items-center justify-center;
+
+			&>* {
+				@apply text-blue scale-[0.9] hidden
+			}
+		}
+
+		&:checked~* {
+			border-color: #1074EB;
+
+			&>* {
+				display: block;
+			}
+		}
+	}
+}
